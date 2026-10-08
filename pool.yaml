@@ -1,0 +1,89 @@
+# Jacuzzi JVS165S Pool Pump Controller
+# Share-safe version: no personal names, SSIDs, passwords, API keys, addresses,
+# Home Assistant entity IDs, or other user-specific information are embedded.
+#
+# Required secrets.yaml entries:
+#   wifi_ssid:
+#   wifi_password:
+#   api_encryption_key:
+#   ota_password:
+
+esphome:
+  name: jacuzzi-jvs165s-pump
+  friendly_name: Jacuzzi JVS165S Pump
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: arduino
+
+logger:
+  hardware_uart: USB_SERIAL_JTAG
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+external_components:
+  - source:
+      type: local
+      path: components
+
+uart:
+  id: pump_uart
+  tx_pin: GPIO17
+  rx_pin: GPIO18
+  baud_rate: 1200
+  data_bits: 8
+  parity: NONE
+  stop_bits: 1
+
+jvs165s:
+  id: pool_pump
+  uart_id: pump_uart
+  direction_pin: GPIO21
+
+  running:
+    name: "Running"
+
+  priming:
+    name: "Priming"
+
+  prime_time_remaining:
+    name: "Prime Time Remaining"
+
+  commanded_rpm:
+    name: "Commanded RPM"
+
+  actual_rpm:
+    name: "Actual RPM"
+
+  power:
+    name: "Power"
+
+  diagnostic:
+    name: "Diagnostic"
+    entity_category: diagnostic
+
+  stop_test:
+    name: "Pool Pump STOP"
+
+  resume_test:
+    name: "Pool Pump Resume"
+
+  speed_1500:
+    name: "Pool Pump 1500 RPM"
+
+  speed_2700:
+    name: "Pool Pump 2700 RPM"
+
+  speed_3100:
+    name: "Pool Pump 3100 RPM"
