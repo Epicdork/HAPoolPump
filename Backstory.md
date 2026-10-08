@@ -1,0 +1,7 @@
+A few years ago, shortly after moving into our new house, I wanted to integrate our pool setup into our smart home. At the time, the pool had a simple single-speed pump, so I installed a 230V Wi-Fi relay switch. It worked great for basic scheduling, but when it came time to replace the pool liner and pump, I decided to upgrade to a variable-speed model to cut down on electricity costs. I picked up a Jacuzzi JVS165S on sale from Leslie’s (which is essentially a rebranded Hayward MaxFlo VS in white).
+
+Fast forward a couple of years: I set out to integrate the new variable-speed pump into my smart home ecosystem, but I couldn't find an easy or budget-friendly off-the-shelf solution. Eventually, I stumbled across a few blogs where people used an M5Stack Atom paired with an RS485 base to control Century-branded pool motors. I bought the hardware to give it a shot, but I couldn't get it to communicate—a failure I now suspect was caused by the Cat6 cable I was using.
+
+While troubleshooting, I came across the Waveshare ESP32-S3-RS485-CAN board, which featured a fully isolated RS485 interface. I wired up the Waveshare controller with new wiring and jumped back into the project, only to realize that the publicly documented commands for Century motors didn't apply to my Jacuzzi/Hayward pump.
+
+Full disclosure: I’m a hardware guy, not a programmer or developer. Huge credit goes to ChatGPT and Claude for helping me write and decipher the code to bring this project to life.
