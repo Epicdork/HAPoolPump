@@ -1277,6 +1277,14 @@ The router is restarting
 
 Current working setup:
 
+<a href="https://github.com/user-attachments/assets/4f1d43a1-de6e-4115-8788-92d2d8fdb999">
+  <img src="https://github.com/user-attachments/assets/4f1d43a1-de6e-4115-8788-92d2d8fdb999" width="200" alt="Pump">
+</a>
+
+<a href="https://github.com/user-attachments/assets/e5062b4a-bfdf-46f3-a2ce-06cb670ca13b">
+  <img src="https://github.com/user-attachments/assets/e5062b4a-bfdf-46f3-a2ce-06cb670ca13b" width="200" alt="Controller">
+</a>
+
 ```text
 Pump A   -> RS485 A+
 Pump B   -> RS485 B-
